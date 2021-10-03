@@ -1,0 +1,62 @@
+$black: #000000;
+$cornflower-lilac: #ffaea9;
+$salmon: #ff7b73;
+$white: #ffffff;
+$your-pink: #ffcccc;
+
+.container{
+    background-color: $salmon;
+    min-height: 100vh;
+    text-align: center;
+    width: auto;
+}
+
+.containText{
+    white-space: pre;
+    padding-right: 15px;
+    padding-bottom:30px;
+    text-align: right;
+    direction: rtl;
+    font-size: 30px;
+    width: 70%;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    background-color:$white ;
+    margin: auto;
+    min-height: 100vh;
+    border: 2px solid black;
+
+}
+
+.fixContent{
+    white-space: pre-wrap;
+}
+
+@media only screen and (max-width: 600px) {
+    .containText{
+        font-size: 17px;
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    .container{
+        min-height: 100vh;
+    }
+
+}
+
+
+@media only screen and (max-width: 1100px) {
+    .containText{
+        font-size: 17px;
+        width: 90%;
+        min-height: 100vh;
+    }
+
+    .container{
+        min-height: 100vh;
+    }
+
+}
+
+
