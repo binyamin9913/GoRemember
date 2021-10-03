@@ -1,0 +1,35 @@
+<div class="container">
+<input 
+type="checkbox"
+class="c-checkbox" 
+id="checkbox">
+<div class="c-formContainer">
+  <form class="c-form" novalidate>
+    <input
+     class="c-form__input" 
+     placeholder="(פב''פ) שם המנוח/ה" 
+     pTooltip="פב''פ" 
+     [tooltipPosition]="tooltipPosition.TOP"
+     tooltipStyleClass="privateNameTooltip"
+     (input) = "setDeadManName($event)" 
+     type="text"
+     required     
+      >
+    <label 
+      class="c-form__buttonLabel"
+      pTooltip=" לחץ עליי להתחלת לימוד" 
+      [tooltipPosition]="tooltipPosition.RIGHT" 
+      tooltipStyleClass="buttonNameTooltip"
+    >
+      <button
+      type="button" 
+      class="c-form__button"
+      [disabled] = activeateButton
+      (click) = startStudy()
+      >החל לימוד</button>
+    </label>
+    <label class="c-form__toggle" for="checkbox" data-title="שם המנוח/ה"></label>
+  </form>
+</div>
+</div>
+<app-logo-bnh></app-logo-bnh>
