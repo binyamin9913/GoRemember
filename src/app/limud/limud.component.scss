@@ -28,6 +28,19 @@ $your-pink: #ffcccc;
 
 }
 
+.custom-class {
+    position: fixed;
+    background-color: pink;
+    border-color: green;
+    height: 30px;
+    width: 30px;
+    border-radius: 20px 20px 20px 20px;
+    right: 5px;
+    color: green;
+    border: 5px solid;
+    line-height: 20px;
+}
+
 .fixContent{
     white-space: pre-wrap;
 }

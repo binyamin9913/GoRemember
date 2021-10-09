@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GenderType } from '../const/gender-type';
 import { StratLimudService } from './strat-limud.service';
@@ -7,7 +7,8 @@ import { ActivatedRoute, Params} from '@angular/router';
 @Component({
   selector: 'app-limud',
   templateUrl: './limud.component.html',
-  styleUrls: ['./limud.component.scss']
+  styleUrls: ['./limud.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LimudComponent implements OnInit {
   filesContent$:Observable<string> = new Observable<string>();

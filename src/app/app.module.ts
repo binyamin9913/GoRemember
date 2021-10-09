@@ -11,6 +11,7 @@ import { LogoBnhComponent } from './logo-bnh/logo-bnh.component';
 import { LimudComponent } from './limud/limud.component';
 import { StratLimudService } from './limud/strat-limud.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxScrollTopModule } from 'ngx-scrolltop';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     TooltipModule,
     ButtonModule,
-    HttpClientModule  ],
+    HttpClientModule,
+    NgxScrollTopModule
+   ],
   providers: [StratLimudService],
   bootstrap: [AppComponent]
 })
