@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable} from 'rxjs';
-import { FilesNames } from './filesNames.model';
+import { Observable} from 'rxjs';
+import { FilesNames } from '../model/filesNames.model';
 
 @Injectable({
   providedIn: 'root'

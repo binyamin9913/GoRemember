@@ -5,6 +5,7 @@ $white: #ffffff;
 $your-pink: #ffcccc;
 
 .container{
+    margin-top: 78px;
     background-color: $salmon;
     min-height: 100vh;
     text-align: center;
@@ -13,8 +14,7 @@ $your-pink: #ffcccc;
 
 .containText{
     white-space: pre;
-    padding-right: 15px;
-    padding-bottom:30px;
+    padding: 15px;
     text-align: right;
     direction: rtl;
     font-size: 30px;
@@ -41,6 +41,7 @@ $your-pink: #ffcccc;
 
     .container{
         min-height: 100vh;
+        margin-top: 165px;
     }
 
 }
@@ -55,6 +56,7 @@ $your-pink: #ffcccc;
 
     .container{
         min-height: 100vh;
+        margin-top: 165px;
     }
 
 }

@@ -22,9 +22,10 @@ id="checkbox">
       tooltipStyleClass="buttonNameTooltip"
     >
       <button
-      type="button" 
+      type="submit" 
       class="c-form__button"
       [disabled] = activeateButton
+      (keydown.enter) = startStudy()
       (click) = startStudy()
       >החל לימוד</button>
     </label>

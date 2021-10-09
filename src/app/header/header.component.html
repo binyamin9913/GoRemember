@@ -1,23 +1,12 @@
 <header class="header">
   <h1 class="logo">
-    <a
-    pTooltip="לעמוד הבית" 
-    tooltipPosition="bottom"
-    routerLink='/'
-     >לך תזכור<img src="/assets/book.png"></a></h1>
-    <h3 class="deadManName"><img src="/assets/ligth.png"><span class="positDeadManName">{{deadManName}} ז"ל</span></h3>
+    <a pTooltip="לעמוד הבית" [tooltipPosition]="tooltipPosition.BOTTOM" routerLink='/'>לך תזכור<img src="/assets/book.png"></a></h1>
+    <h3 class="deadManName" pTooltip="יהי {{remeberGender}} ברוך" [tooltipPosition]="tooltipPosition.BOTTOM"><img src="/assets/ligth.png"><span class="positDeadManName">{{deadManName}} ז"ל</span></h3>
     <ul class="main-nav">
       <li>
-        <a class="listPages">
-          <i class='fas fa-angle-down'></i>
-          רשימת עמודים ללימוד</a>
-        <ul class="dropdown">
-          <li><a routerLink="/blassBeforeLimud">ברכה לפני לימוד</a></li>
-          <li class="lettersSoul" *ngIf="privateName != undefined"><a>אותיות ללימוד משניות</a></li>
-          <li *ngFor="let letter of splitedPrivateName"><a routerLink='/{{letter}}'><b>{{letter}}</b></a></li>
-          <li><a routerLink="/suolLetters">אותיות נשמה</a></li>
-          <li><a routerLink="/kelim">כלים כד</a></li>
-          <li><a routerLink="/blassAfterLimud">ברכה אחר לימוד</a></li>  
+        <a class="listPages" (click) = "closeList()"><i class='fas fa-angle-down'></i> רשימת עמודים ללימוד</a>
+        <ul *ngIf=!isDropDownOpen class="dropdown">
+          <li *ngFor="let link of linksList" ngClass="{ {{link.className}} }" (click)="upToTop()"><a routerLink='/{{link.routerLink}}'>{{link.content}}</a></li>
         </ul>
       </li>
     </ul>
