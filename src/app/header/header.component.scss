@@ -34,6 +34,7 @@ img {
 	text-transform: uppercase;
 	text-align: center;
 	display: block;
+	
 }
 
 .main-nav .listPages {
@@ -48,7 +49,8 @@ img {
 }
 
 .dropdown {
-	margin-left: 10px;
+	margin-left: -15px;
+	position:absolute;
 }
 
 .main-nav a:hover {

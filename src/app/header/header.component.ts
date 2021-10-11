@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GenderType } from '../const/gender-type';
 import { TooltipPositionType } from '../const/tooltip-position-type.enum';
 import { Links } from '../model/links.model';
@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
   @Input() deadManName:any;
   @Input() privateName:any;
   splitedPrivateName:Links[]=[];
+  @Output() changeFontSizeInContext: EventEmitter<number> = new EventEmitter();
+  @Output() changeColorOfContext: EventEmitter<string> = new EventEmitter();
   tooltipPosition = TooltipPositionType;
   genderType = GenderType;
   remeberGender='';
@@ -40,6 +42,16 @@ export class HeaderComponent implements OnInit {
 
   closeList():void{
     this.isDropDownOpen=!this.isDropDownOpen;
+  }
+
+  changeFontSize(fontSize:number):void{
+    this.closeList();
+    this.changeFontSizeInContext.emit(fontSize);
+  }
+
+  changeColor(color:string):void{
+    this.closeList();
+    this.changeColorOfContext.emit(color);
   }
 
 }

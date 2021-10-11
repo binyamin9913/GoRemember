@@ -1,11 +1,13 @@
 <app-header
 [deadManName]=fullName
 [privateName]=privateName
+(changeFontSizeInContext)="changeFontSize($event)"
+(changeColorOfContext)="changeColor($event)"
 ></app-header>
 <div class="container">
     <div class="containText">
-    <p class="fixContent">{{ fileContent }}</p>
-    <ngx-scrolltop [size]="50" >להתחלה</ngx-scrolltop>
+    <p class="fixContent" [ngStyle]="{'font-size': fontSize+'px', 'color': color}">{{ fileContent }}</p>
+    <ngx-scrolltop [size]="50" ><i class='fas fa-angle-up'></i> </ngx-scrolltop>
     </div>    
 </div>
 

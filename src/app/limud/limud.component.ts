@@ -15,7 +15,9 @@ export class LimudComponent implements OnInit {
   privateName:string = '';
   fullName:any;
   fileContent:string='';
+  color:string | undefined; 
   genderType = GenderType;
+  fontSize:number | undefined;
   
   constructor(private stratLimudService:StratLimudService ,private activatedRoute: ActivatedRoute) {
     this.activatedRoute.paramMap.subscribe(params => this.ngOnInit());
@@ -38,6 +40,14 @@ export class LimudComponent implements OnInit {
 
   private extractPrivateName(fullname:string,genderType:GenderType): string{
    return fullname.split(genderType)[0];
+  }
+
+  changeFontSize(fontSize:number){
+    this.fontSize=fontSize;
+  }
+
+  changeColor(color:string){
+    this.color=color;
   }
 
 }

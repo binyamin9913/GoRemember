@@ -12,6 +12,7 @@ import { LimudComponent } from './limud/limud.component';
 import { StratLimudService } from './limud/strat-limud.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxScrollTopModule } from 'ngx-scrolltop';
+import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NgxScrollTopModule } from 'ngx-scrolltop';
     TooltipModule,
     ButtonModule,
     HttpClientModule,
-    NgxScrollTopModule
+    NgxScrollTopModule,
+    DropdownModule
    ],
   providers: [StratLimudService],
   bootstrap: [AppComponent]
