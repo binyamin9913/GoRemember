@@ -121,19 +121,17 @@ $your-pink: #ffcccc;
     &::placeholder {
         color: currentColor;
     }
+}
 
-    &:required:valid {
-        color: $salmon;
-       
-        + .c-form__buttonLabel {
-            color: $white;
-        
-            &::before {
-                pointer-events: initial;
-            }
+.ng-valid[required], .ng-valid.required  {
+    color: $salmon;
+   
+    + .c-form__buttonLabel {
+        color: $white;
+    
+        &::before {
+            pointer-events: initial;
         }
-     
-        
     }
 }
 

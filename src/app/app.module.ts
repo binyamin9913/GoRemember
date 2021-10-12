@@ -9,6 +9,7 @@ import { CreateLimoudeComponent } from './create-limoude/create-limoude.componen
 import { HeaderComponent } from './header/header.component';
 import { LogoBnhComponent } from './logo-bnh/logo-bnh.component';
 import { LimudComponent } from './limud/limud.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StratLimudService } from './limud/strat-limud.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxScrollTopModule } from 'ngx-scrolltop';
@@ -29,7 +30,9 @@ import {DropdownModule} from 'primeng/dropdown';
     ButtonModule,
     HttpClientModule,
     NgxScrollTopModule,
-    DropdownModule
+    DropdownModule,
+    FormsModule,
+    ReactiveFormsModule
    ],
   providers: [StratLimudService],
   bootstrap: [AppComponent]

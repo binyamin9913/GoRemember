@@ -1,7 +1,7 @@
-import { Component, Inject, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TooltipPositionType } from '../const/tooltip-position-type.enum';
-import { StratLimudService } from '../limud/strat-limud.service';
 
 @Component({
   selector: 'app-create-limoude',
@@ -14,22 +14,22 @@ export class CreateLimoudeComponent implements OnInit {
   deadManName:string = '';
   activeateButton = true;
   tooltipPosition = TooltipPositionType
+  profileForm!: FormGroup;
 
   constructor(private router:Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.profileForm = new FormGroup({privateName: new FormControl('',[Validators.required, Validators.pattern("[\u0590-\u05FF ]*")])});
+  }
 
   setDeadManName(deadManName:Event){
       this.deadManName = (deadManName.target as HTMLInputElement).value;
       this.activeateButton = this.deadManName.length > 0 ? false : true ;
   }
 
-  startStudy(){
+  onSubmit(){
    sessionStorage.setItem('deadManName', this.deadManName);
    this.router.navigate(['blassBeforeLimud'])
-    
   }
-
-
 
 }

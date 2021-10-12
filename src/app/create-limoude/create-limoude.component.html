@@ -4,7 +4,7 @@ type="checkbox"
 class="c-checkbox" 
 id="checkbox">
 <div class="c-formContainer">
-  <form class="c-form" novalidate>
+  <form class="c-form" (ngSubmit)="onSubmit()" [formGroup]="profileForm">
     <input
      class="c-form__input" 
      placeholder="(פב''פ) שם המנוח/ה" 
@@ -12,21 +12,19 @@ id="checkbox">
      [tooltipPosition]="tooltipPosition.TOP"
      tooltipStyleClass="privateNameTooltip"
      (input) = "setDeadManName($event)" 
-     type="text"
-     required     
+     formControlName="privateName"
+     type="text"   
+     required
     >
     <label 
       class="c-form__buttonLabel"
       pTooltip=" לחץ עליי להתחלת לימוד" 
       [tooltipPosition]="tooltipPosition.RIGHT" 
-      tooltipStyleClass="buttonNameTooltip"
-    >
+      tooltipStyleClass="buttonNameTooltip">
       <button
       type="submit" 
       class="c-form__button"
-      [disabled] = activeateButton
-      (keydown.enter) = startStudy()
-      (click) = startStudy()
+      [disabled]="profileForm.invalid"
       >החל לימוד</button>
     </label>
     <label class="c-form__toggle" for="checkbox" data-title="שם המנוח/ה"></label>

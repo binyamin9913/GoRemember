@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.privateName=this.privateName.replace(/\s/g, "");
     this.privateName.split('').forEach((element: string) => this.splitedPrivateName.push(new Links(element,element,'lettersSoul')));
     this.remeberGender=this.deadManName.includes(this.genderType.BOY)?'זכרו':'זכרה';
     this.linksList=[

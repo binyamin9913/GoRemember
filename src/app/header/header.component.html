@@ -18,7 +18,7 @@
       </ul>
     </li>
       <li>
-        <a class="listPages" (click) = "closeList()"><i class='fas fa-angle-down'></i> רשימת עמודים ללימוד</a>
+        <a class="listPages" (click) = "closeList()"><b style="font-size: 20px;">&#8595;</b> רשימת עמודים ללימוד</a>
         <ul *ngIf=!isDropDownOpen class="dropdown" style="margin-left: 25px;">
           <li *ngFor="let link of linksList" ngClass="{ {{link.className}} }" (click)="upToTop()"><a routerLink='/{{link.routerLink}}'>{{link.content}}</a></li>
         </ul>
