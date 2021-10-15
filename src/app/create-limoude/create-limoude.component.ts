@@ -29,7 +29,7 @@ export class CreateLimoudeComponent implements OnInit {
 
   onSubmit(){
    sessionStorage.setItem('deadManName', this.deadManName);
-   this.router.navigate(['blassBeforeLimud'])
+   this.router.navigate(['ברכה לפני לימוד'])
   }
 
 }

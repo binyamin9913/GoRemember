@@ -6,13 +6,14 @@ id="checkbox">
 <div class="c-formContainer">
   <form class="c-form" (ngSubmit)="onSubmit()" [formGroup]="profileForm">
     <input
+     appAutofocus
      class="c-form__input" 
      placeholder="(פב''פ) שם המנוח/ה" 
      pTooltip="פב''פ" 
      [tooltipPosition]="tooltipPosition.TOP"
      tooltipStyleClass="privateNameTooltip"
      (input) = "setDeadManName($event)" 
-     formControlName="privateName"
+     formControlName="privateName" 
      type="text"   
      required
     >

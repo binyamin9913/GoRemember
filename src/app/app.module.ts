@@ -14,6 +14,7 @@ import { StratLimudService } from './limud/strat-limud.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxScrollTopModule } from 'ngx-scrolltop';
 import {DropdownModule} from 'primeng/dropdown';
+import { AutofocusDirective } from './directives/autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {DropdownModule} from 'primeng/dropdown';
     CreateLimoudeComponent,
     HeaderComponent,
     LogoBnhComponent,
-    LimudComponent
+    LimudComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,

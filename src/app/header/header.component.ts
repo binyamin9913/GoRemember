@@ -28,11 +28,11 @@ export class HeaderComponent implements OnInit {
     this.privateName.split('').forEach((element: string) => this.splitedPrivateName.push(new Links(element,element,'lettersSoul')));
     this.remeberGender=this.deadManName.includes(this.genderType.BOY)?'זכרו':'זכרה';
     this.linksList=[
-      new Links('blassBeforeLimud','ברכה לפני לימוד'),
+      new Links('ברכה לפני לימוד','ברכה לפני לימוד'),
       ...this.splitedPrivateName,
-      new Links('suolLetters','אותיות נשמה'),
-      new Links('kelim','כלים כד'),
-      new Links('blassAfterLimud','ברכה אחר לימוד'),
+      new Links('אותיות נשמה','אותיות נשמה'),
+      new Links('כלים כד','כלים כד'),
+      new Links('ברכה אחר לימוד','ברכה אחר לימוד'),
     ]    
   }
 

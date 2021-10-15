@@ -18,6 +18,7 @@ export class LimudComponent implements OnInit {
   color:string | undefined; 
   genderType = GenderType;
   fontSize:number | undefined;
+  titleName='';
   
   constructor(private stratLimudService:StratLimudService ,private activatedRoute: ActivatedRoute) {
     this.activatedRoute.paramMap.subscribe(params => this.ngOnInit());
@@ -26,6 +27,9 @@ export class LimudComponent implements OnInit {
   ngOnInit(): void {
     this.setFullName();
     this.changeRoutes();
+    this.activatedRoute.params.subscribe(params => {
+      this.titleName = params['pageContent']
+    })
   }
 
   private setFullName(){

@@ -1,6 +1,6 @@
 export class FilesNames{
     myFileMaps = new Map([
-        ["blassBeforeLimud","blassbefore.txt"],
+        ["ברכה לפני לימוד","blassbefore.txt"],
         ["א","aleff.txt"],
         ["ב","bet.txt"],
         ["ג","gimel.txt"],
@@ -28,9 +28,9 @@ export class FilesNames{
         ["ר","raish.txt"],
         ["ש","shien.txt"],
         ["ת","taf.txt"],
-        ["blassAfterLimud","afterblass.txt"],
-        ["kelim","kelim.txt"],
-        ["suolLetters","suolLetters.txt"]
+        ["ברכה אחר לימוד","afterblass.txt"],
+        ["כלים כד","kelim.txt"],
+        ["אותיות נשמה","suolLetters.txt"]
     ]); 
 
     getFileContent(key:string):any{
