@@ -1,5 +1,3 @@
-$salmon: #ff7b73;
-
 body {
 	font-family: "Montserrat", sans-serif;
 	line-height: 4.6;
@@ -54,8 +52,8 @@ img {
 }
 
 .main-nav a:hover {
-	color: white;
-	background-color: $salmon;
+	color: var(--white);
+	background-color: var(--salmon);
 	cursor: pointer;
 }
 
@@ -78,6 +76,11 @@ img {
 }
 
 .lettersSoul{
+	font-weight: bold;
+}
+
+.disableLink{
+	cursor: not-allowed !important;
 	font-weight: bold;
 }
 

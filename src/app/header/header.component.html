@@ -1,17 +1,17 @@
 <header class="header">
   <h1 class="logo">
     <a pTooltip="לעמוד הבית" [tooltipPosition]="tooltipPosition.BOTTOM" routerLink='/'>לך תזכור<img src="/assets/book.png"></a></h1>
-    <h3 class="deadManName" pTooltip="יהי {{remeberGender}} ברוך" [tooltipPosition]="tooltipPosition.BOTTOM"><img src="/assets/ligth.png"><span class="positDeadManName">{{deadManName}} ז"ל</span></h3>
+    <h3 class="deadManName"><img src="/assets/ligth.png"><span class="positDeadManName">{{deadManName}} ז"ל</span></h3>
     <ul class="main-nav">
       <li>
       <a class="listPages" (click) = "closeList()"><i class="fa fa-gear"></i></a>
       <ul *ngIf=!isDropDownOpen class="dropdown">
-        <li><a style="cursor: not-allowed; font-weight: bold;">גודל גופן</a></li>
+        <li><a class="disableLink">גודל גופן</a></li>
         <li><a (click) = "changeFontSize(30)">רגיל</a></li>
-        <li><a (click) = "changeFontSize(20)">25%</a></li>
-        <li><a (click) = "changeFontSize(35)">(מומלץ) 50%</a></li>
+        <li><a (click) = "changeFontSize(20)">(מומלץ) 25%</a></li>
+        <li><a (click) = "changeFontSize(35)">50%</a></li>
         <li><a (click) = "changeFontSize(40)">100%</a></li>
-        <li><a style="cursor: not-allowed; font-weight: bold;">צבע גופן</a></li>
+        <li><a class="disableLink">צבע גופן</a></li>
         <li><a (click) = "changeColor('black')">שחור</a></li>
         <li><a (click) = "changeColor('red')">אדום</a></li>
         <li><a (click) = "changeColor('blue')">כחול</a></li>
@@ -20,7 +20,7 @@
       <li>
         <a class="listPages" (click) = "closeList()"><b style="font-size: 20px;">&#8595;</b> רשימת עמודים ללימוד</a>
         <ul *ngIf=!isDropDownOpen class="dropdown" style="margin-left: 25px;">
-          <li *ngFor="let link of linksList" ngClass="{ {{link.className}} }" (click)="upToTop()"><a routerLink='/{{link.routerLink}}'>{{link.content}}</a></li>
+          <li *ngFor="let link of linksPagesList" ngClass="{ {{link.className}} }" (click)="upToTop()"><a routerLink='/{{link.routerLink}}'>{{link.routerLink}}</a></li>
         </ul>
       </li>
     </ul>

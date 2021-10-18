@@ -6,7 +6,7 @@ import { TooltipPositionType } from '../const/tooltip-position-type.enum';
 @Component({
   selector: 'app-create-limoude',
   templateUrl: './create-limoude.component.html',
-  styleUrls: ['./create-limoude.component.scss'],
+  styleUrls: ['./create-limoude.component.scss']
 })
 export class CreateLimoudeComponent implements OnInit {
   

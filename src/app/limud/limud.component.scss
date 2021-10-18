@@ -1,18 +1,12 @@
-$black: #000000;
-$cornflower-lilac: #ffaea9;
-$salmon: #ff7b73;
-$white: #ffffff;
-$your-pink: #ffcccc;
-
-.container{
+.container {
     margin-top: 78px;
-    background-color: $salmon;
+    background-color: var(--salmon);
     min-height: 100vh;
     text-align: center;
     width: auto;
 }
 
-.containText{
+.containText {
     white-space: pre;
     padding: 15px;
     text-align: right;
@@ -20,17 +14,16 @@ $your-pink: #ffcccc;
     font-size: 30px;
     width: 70%;
     font-weight: bold;
-    font-family: 'Courier New', monospace;
-    background-color:$white ;
+    font-family: "Courier New", monospace;
+    background-color: var(--white);
     margin: auto;
     min-height: 100vh;
     border: 2px solid black;
-
 }
 
 .custom-class {
     position: fixed;
-    background-color: pink;
+    background-color: var(--your-pink);
     border-color: green;
     height: 30px;
     width: 30px;
@@ -41,37 +34,40 @@ $your-pink: #ffcccc;
     line-height: 20px;
 }
 
-.fixContent{
+.fixContent {
     white-space: pre-wrap;
 }
 
+.goToUpBtn {
+    font-size: 12px;
+}
+
+.titlePage{
+    text-align: center
+}
+
 @media only screen and (max-width: 600px) {
-    .containText{
+    .containText {
         font-size: 17px;
         width: 100%;
         min-height: 100vh;
     }
 
-    .container{
+    .container {
         min-height: 100vh;
         margin-top: 165px;
     }
-
 }
 
-
 @media only screen and (max-width: 1100px) {
-    .containText{
+    .containText {
         font-size: 17px;
         width: 90%;
         min-height: 100vh;
     }
 
-    .container{
+    .container {
         min-height: 100vh;
         margin-top: 165px;
     }
-
 }
-
-

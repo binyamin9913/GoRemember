@@ -16,24 +16,24 @@ export class HeaderComponent implements OnInit {
   @Output() changeColorOfContext: EventEmitter<string> = new EventEmitter();
   tooltipPosition = TooltipPositionType;
   genderType = GenderType;
-  remeberGender='';
   isDropDownOpen = true;
-  linksList:Links[] | undefined;
+  linksPagesList:Links[] = [];
 
-  constructor() { 
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    this.privateName=this.privateName.replace(/\s/g, "");
-    this.privateName.split('').forEach((element: string) => this.splitedPrivateName.push(new Links(element,element,'lettersSoul')));
-    this.remeberGender=this.deadManName.includes(this.genderType.BOY)?'זכרו':'זכרה';
-    this.linksList=[
-      new Links('ברכה לפני לימוד','ברכה לפני לימוד'),
-      ...this.splitedPrivateName,
-      new Links('אותיות נשמה','אותיות נשמה'),
-      new Links('כלים כד','כלים כד'),
-      new Links('ברכה אחר לימוד','ברכה אחר לימוד'),
-    ]    
+    this.privateName=this.deleteWhiteSpaces();
+    this.generateDropDownList();
+  }
+
+  private deleteWhiteSpaces():string{
+      //replace all white spaces with emptey char example " " => ""  משהבן <= משה בן
+      return this.privateName.replace(/\s/g, "");
+  }
+
+  private generateDropDownList(){
+    this.privateName.split('').forEach((element: string) => this.splitedPrivateName.push({routerLink:element,className:'lettersSoul'}));
+    this.linksPagesList=[{routerLink:'ברכה לפני לימוד'},...this.splitedPrivateName,{routerLink:'אותיות נשמה'},{routerLink:'כלים כד'},{routerLink:'ברכה אחר לימוד'},]    
   }
 
   upToTop():void{

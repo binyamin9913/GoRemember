@@ -1,5 +1,5 @@
-import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, HostListener, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { GenderType } from '../const/gender-type';
 import { StratLimudService } from './strat-limud.service';
 import { ActivatedRoute, Params} from '@angular/router';
@@ -10,26 +10,32 @@ import { ActivatedRoute, Params} from '@angular/router';
   styleUrls: ['./limud.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class LimudComponent implements OnInit {
+export class LimudComponent implements OnInit,OnDestroy {
   filesContent$:Observable<string> = new Observable<string>();
+  subscriptions:Subscription[]=[];
   privateName:string = '';
   fullName:any;
   fileContent:string='';
   color:string | undefined; 
   genderType = GenderType;
-  fontSize:number | undefined;
-  titleName='';
+  contantfontSize:number | undefined;
+  titlePage='';
   
   constructor(private stratLimudService:StratLimudService ,private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.paramMap.subscribe(params => this.ngOnInit());
+    this.subscriptions.push(this.activatedRoute.paramMap.subscribe(params => this.ngOnInit()));
    }
 
   ngOnInit(): void {
     this.setFullName();
-    this.changeRoutes();
-    this.activatedRoute.params.subscribe(params => {
-      this.titleName = params['pageContent']
-    })
+    this.subscriptions=[...this.changeRoutes(),this.setTitleName()];
+  }
+
+  changeFontSize(fontSize:number){
+    this.contantfontSize=fontSize;
+  }
+
+  changeColor(color:string){
+    this.color=color;
   }
 
   private setFullName(){
@@ -37,21 +43,23 @@ export class LimudComponent implements OnInit {
     this.privateName = this.fullName.includes(this.genderType.BOY) ? this.extractPrivateName(this.fullName,this.genderType.BOY) : this.extractPrivateName(this.fullName,this.genderType.GIRL)
   }
 
-  private changeRoutes(){
-    this.activatedRoute.params.subscribe(params => this.filesContent$=this.stratLimudService.getContentFromFile(params['pageContent']))
-    this.filesContent$.subscribe((value: string) => this.fileContent=value.toString().replace('(פב"פ)',this.fullName))
+  private changeRoutes():Subscription[]{
+    const subscriptions:Subscription[]=[]
+    subscriptions.push(this.activatedRoute.params.subscribe(params => this.filesContent$=this.stratLimudService.getContentFromFile(params['pageContent'])))
+    subscriptions.push(this.filesContent$.subscribe(value => this.fileContent=value.toString().replace('(פב"פ)',this.fullName)))
+    return subscriptions
   }
 
   private extractPrivateName(fullname:string,genderType:GenderType): string{
    return fullname.split(genderType)[0];
   }
 
-  changeFontSize(fontSize:number){
-    this.fontSize=fontSize;
+  private setTitleName(){
+    return this.activatedRoute.params.subscribe(params => this.titlePage = params['pageContent'])
   }
 
-  changeColor(color:string){
-    this.color=color;
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe())
   }
 
 }

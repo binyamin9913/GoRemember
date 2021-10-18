@@ -6,9 +6,11 @@
 ></app-header>
 <div class="container">
     <div class="containText">
-        <h1 style="text-align: center;">{{titleName}}</h1>
-    <p class="fixContent" [ngStyle]="{'font-size': fontSize+'px', 'color': color}">{{ fileContent }}</p>
-    <ngx-scrolltop [size]="50" ><p style="font-size: 12px;">להתחלה</p></ngx-scrolltop>
+        <h2 class="titlePage">{{titlePage}}</h2>
+        <p class="fixContent" [ngStyle]="{'font-size': contantfontSize+'px', 'color': color}">{{ fileContent }}</p>
+        <ngx-scrolltop [size]="50">
+            <p class="goToUpBtn">להתחלה</p>
+        </ngx-scrolltop>
     </div>    
 </div>
 
