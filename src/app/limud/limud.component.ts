@@ -46,7 +46,7 @@ export class LimudComponent implements OnInit,OnDestroy {
   private changeRoutes():Subscription[]{
     const subscriptions:Subscription[]=[]
     subscriptions.push(this.activatedRoute.params.subscribe(params => this.filesContent$=this.stratLimudService.getContentFromFile(params['pageContent'])))
-    subscriptions.push(this.filesContent$.subscribe(value => this.fileContent=value.toString().replace('(פב"פ)',this.fullName)))
+    subscriptions.push(this.filesContent$.subscribe(value => this.fileContent=value.toString().replace('(פב"פ)','<i class="privateName">'+this.fullName+'</i>')))
     return subscriptions
   }
 
