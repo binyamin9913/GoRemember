@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
 
   private generateDropDownList(){
     this.privateName.split('').forEach((element: string) => this.splitedPrivateName.push({routerLink:element,className:'lettersSoul'}));
-    this.linksPagesList=[{routerLink:'ברכה לפני לימוד'},...this.splitedPrivateName,{routerLink:'אותיות נשמה'},{routerLink:'כלים כד'},{routerLink:'ברכה אחר לימוד'},]    
+    this.linksPagesList=[{routerLink:'ברכה לפני לימוד'},...this.splitedPrivateName,{routerLink:'אותיות נשמה'},{routerLink:'ברכה אחר לימוד'},]    
   }
 
   upToTop():void{

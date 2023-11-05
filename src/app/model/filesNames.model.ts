@@ -29,7 +29,6 @@ export class FilesNames{
         ["ש","shien.txt"],
         ["ת","taf.txt"],
         ["ברכה אחר לימוד","afterblass.txt"],
-        ["כלים כד","kelim.txt"],
         ["אותיות נשמה","suolLetters.txt"]
     ]); 
 

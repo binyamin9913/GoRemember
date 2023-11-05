@@ -46,7 +46,25 @@ export class LimudComponent implements OnInit,OnDestroy {
   private changeRoutes():Subscription[]{
     const subscriptions:Subscription[]=[]
     subscriptions.push(this.activatedRoute.params.subscribe(params => this.filesContent$=this.stratLimudService.getContentFromFile(params['pageContent'])))
-    subscriptions.push(this.filesContent$.subscribe(value => this.fileContent=value.toString().replace('(פב"פ)','<i class="privateName">'+this.fullName+'</i>')))
+    subscriptions.push(this.filesContent$.subscribe(value =>
+      {
+        const _genderType = this.fullName.includes(this.genderType.BOY) ? this.genderType.BOY : this.genderType.GIRL
+        this.fileContent = value.toString().replace('(פב"פ)','<i class="privateName">'+this.fullName+'</i>')
+
+        if(value.toString().includes('(ברכה לאחר לימוד)'))
+        {
+            if(this.genderType.BOY === _genderType)
+            {
+              this.fileContent = this.fileContent.toString().replace('(ברכה לאחר לימוד)', this.afterBlassForBoy());
+            }
+
+            if(this.genderType.GIRL === _genderType)
+            {
+              this.fileContent = this.fileContent.toString().replace('(ברכה לאחר לימוד)', this.afterBlassForGirl());
+            }
+        }
+      }))
+
     return subscriptions
   }
 
@@ -62,4 +80,13 @@ export class LimudComponent implements OnInit,OnDestroy {
     this.subscriptions.forEach(subscription => subscription.unsubscribe())
   }
 
+  private afterBlassForBoy():string
+  {
+    return "וְתִשְׁמוֹר אוֹתוֹ מֵחִבּוּט הַקֶּבֶר וּמֵרִמָּה וְתוֹלֵעָה, וְתִסְלַח וְתִמְחוֹל לוֹ עַל כָּל פְּשָׁעָיו, כִּי אָדָם אֵין צַדִּיק בָּאָרֶץ אֲשֶׁר יַעֲשֶׂה טוֹב וְלֹא יֶחֱטָא, וּזְכוֹר לוֹ זְכֻיּוֹתָיו וְצִדְקוֹתָיו אֲשֶׁר עָשָׂה, וְתַשְׁפִּיעַ לוֹ מִנִּשְׁמָתוֹ לְדַשֵּׁן עַצְמוֹתָיו בַּקֶּבֶר מֵרֹב טוּב הַצָּפוּן לַצַּדִּיקִים, דִּכְתִיב מָה רַב טוּבְךָ אֲשֶׁר צָפַנְתָּ לִירֵאֶיךָ, וּכְתִיב שֹׁמֵר כָּל עַצְמוֹתָיו אַחַת מֵהֵנָּה לֹא נִשְׁבָּרָה, וְיִשְׁכּוֹן בֶּטַח בָּדָד וְשַׁאֲנָן מִפַּחַד רָעָה, וְאַל יִרְאֶה פְּנֵי גֵּיהִנֹּם, וְנִשְׁמָתוֹ תְּהֵא צְרוּרָה בִּצְרוֹר הַחַיִּים, וּלְהַחֲיוֹתוֹ בִּתְחִיַּת הַמֵּתִים עִם כָּל מֵתֵי עַמְּךָ יִשְׂרָאֵל בְּרַחֲמִים, אָמֵן:    ";
+  }
+
+  private afterBlassForGirl():string
+  {
+    return "וְתִשְׁמוֹר אוֹתָהּ מֵחִבּוּט הַקֶּבֶר וּמֵרִמָּה וְתוֹלֵעָה, וְתִסְלַח וְתִמְחוֹל לָהּ עַל כָּל פְּשָׁעֶיהָ, כִּי אָדָם אֵין צַדִּיק בָּאָרֶץ אֲשֶׁר יַעֲשֶׂה טוֹב וְלֹא יֶחֱטָא, וּזְכוֹר לוֹ זְכֻיּוֹתֶיהָ וְצִדְקוֹתֶיהָ אֲשֶׁר עָשְׂתָה, וְתַשְׁפִּיעַ לָהּ מִנִּשְׁמָתָה לְדַשֵּׁן עַצְמוֹתֶיהָ בַּקֶּבֶר מֵרֹב טוּב הַצָּפוּן לַצַּדִּיקִים, דִּכְתִיב מָה רַב טוּבְךָ אֲשֶׁר צָפַנְתָּ לִירֵאֶיךָ, וּכְתִיב שֹׁמֵר כָּל עַצְמוֹתָיו אַחַת מֵהֵנָּה לֹא נִשְׁבָּרָה, וְתִשְׁכּוֹן בֶּטַח בָּדָד וְשַׁאֲנָן מִפַּחַד רָעָה, וְאַל תִּרְאֶה פְּנֵי גֵּיהִנֹּם, וְנִשְׁמָתָהּ תְּהֵא צְרוּרָה בִּצְרוֹר הַחַיִּים, וּלְהַחֲיוֹתָהּ בִּתְחִיַּת הַמֵּתִים עִם כָּל מֵתֵי עַמְּךָ יִשְׂרָאֵל בְּרַחֲמִים, אָמֵן:";
+  }
 }
